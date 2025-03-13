@@ -30,6 +30,14 @@ public class DeckOfCards {
     }
 
 
+    public PlayingCard drawCard(){
+        if (cards.isEmpty()){
+            throw new IllegalStateException("Deck of cards is empty or null");
+        }
+
+        return cards.remove(0);
+    }
+
 
 
 }
