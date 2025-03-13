@@ -3,6 +3,7 @@ package no.ntnu.idatt2003.oving5.models;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 
 import no.ntnu.idatt2003.oving5.enums.Suit;
@@ -52,6 +53,26 @@ public class DeckOfCards {
             }
         }
         Collections.shuffle(cards);
+    }
+
+
+    public List<PlayingCard> dealHand(int n){
+        if(n < 1 || n > cards.size()){
+            throw new IllegalArgumentException("The number N cannot be less than 1 or bigger than" + cards.size());
+        }
+
+        List<PlayingCard> hand = new ArrayList <>();
+        Random random = new Random();
+
+        for(int i = 0; i<n; i++){
+            int randomIndex = random.nextInt(cards.size());
+            PlayingCard drawnCard = cards.remove(randomIndex);
+            hand.add(drawnCard);
+        }
+
+        return hand;
+
+
     }
 
 

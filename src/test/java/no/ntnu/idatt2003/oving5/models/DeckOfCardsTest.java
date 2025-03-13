@@ -54,5 +54,28 @@ public class DeckOfCardsTest {
         assertEquals(52, deck.getCards().size());
     }
 
+    @Test
+    void dealHandShouldReturnCorrectNumberOfCards() {
+        int handSize = 5;
+        List<PlayingCard> hand = deck.dealHand(handSize);
+
+        assertEquals(handSize, hand.size(), "Hand should contain " + handSize + " cards");
+        assertEquals(52 - handSize, deck.getCards().size(), "Deck should have 52 - " + handSize + " cards left");
+    }
+
+    @Test
+    void dealHandShouldThrowExceptionForInvalidInput() {
+        assertThrows(IllegalArgumentException.class, () -> deck.dealHand(0), "Should throw exception for n = 0");
+        assertThrows(IllegalArgumentException.class, () -> deck.dealHand(53), "Should throw exception for n = 53");
+    }
+
+    @Test
+    void dealHandShouldRemoveDrawnCardsFromDeck() {
+        List<PlayingCard> hand = deck.dealHand(10);
+        for (PlayingCard card : hand) {
+            assertFalse(deck.getCards().contains(card), "Deck should not contain drawn cards");
+        }
+    }
+
 
 }
