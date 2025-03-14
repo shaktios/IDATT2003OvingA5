@@ -57,9 +57,11 @@ public class DeckOfCards {
 
 
     public List<PlayingCard> dealHand(int n){
-        if(n < 1 || n > cards.size()){
-            throw new IllegalArgumentException("The number N cannot be less than 1 or bigger than" + cards.size());
+        if (n > cards.size()) {
+            System.out.println("Deck is empty! Resetting deck...");
+            resetDeck();
         }
+
 
         List<PlayingCard> hand = new ArrayList <>();
         Random random = new Random();
@@ -71,7 +73,6 @@ public class DeckOfCards {
         }
 
         return hand;
-
 
     }
 
