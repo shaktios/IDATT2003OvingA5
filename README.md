@@ -21,7 +21,7 @@ Prosjektet implementerer funksjonalitet for å trekke kort, sjekke håndverdier 
 
 ---
 
-## Oppgave 2 – Trekke kort (dealHand)**
+## Oppgave 2 – Trekke kort (dealHand)
 - Lagde `dealHand(n)`, som trekker `n` tilfeldige kort fra kortstokken.  
 - Sørget for at kortene fjernes fra `DeckOfCards` etter trekking.  
 - **JUnit-tester** sjekker at antall kort i stokken reduseres riktig.
